@@ -1,0 +1,11 @@
+.login {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+}
+.inputContainer {
+  width: 50%;
+}
+.coverImage {
+  width: 50%;
+}

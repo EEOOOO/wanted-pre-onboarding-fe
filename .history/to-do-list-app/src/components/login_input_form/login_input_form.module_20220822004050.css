@@ -1,0 +1,32 @@
+.inputForm {
+  margin: 4rem;
+}
+.email,
+.password {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+input {
+  width: 80%;
+  font-size: 0.5rem;
+  padding: 0.5rem;
+  margin: 1rem;
+  border: none;
+  border-bottom: 0.5px solid gray;
+}
+.submitButton {
+  background-color: rgb(149, 99, 251);
+  color: white;
+  border: none;
+  padding: 0.7rem 1.5rem;
+  border-radius: 17px;
+  margin: 0.5rem;
+  -webkit-box-shadow: 1px 1px 15px 5px rgba(149, 99, 251, 0.23);
+  box-shadow: 1px 1px 15px 5px rgba(149, 99, 251, 0.23);
+  cursor: pointer;
+  transition: transform 200ms ease-in;
+}
+.submitButton:hover {
+  transform: scale(1.05);
+}

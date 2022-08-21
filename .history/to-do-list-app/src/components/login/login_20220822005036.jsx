@@ -12,9 +12,7 @@ const Login = (props) => {
     let [viewableScreen, setViewableScreen] = useState(signIn);
     return (
         <div className={style.login}>
-            <div className={style.cover}>
-                <img src={loginImage} className={style.coverImage}/>
-            </div>
+            <img src={loginImage} className={style.coverImage}/>
             <div className={style.inputContainer}>{viewableScreen}</div>
         </div>
     )

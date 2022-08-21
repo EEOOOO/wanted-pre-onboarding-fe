@@ -1,0 +1,12 @@
+.login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.inputContainer {
+  width: 50%;
+}
+.coverImage {
+  width: 50%;
+  background-color: blue;
+}

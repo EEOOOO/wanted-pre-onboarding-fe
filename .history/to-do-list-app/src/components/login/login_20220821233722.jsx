@@ -5,17 +5,16 @@ import style from '../login/login.module.css';
 import loginImage from '../login/login_img.png';
 
 const Login = (props) => {
+    const img = img(loginImage);
     const goTosignUp = () => {
-        setViewableScreen(<SignUp/>)
+        setViewableScreen(<SignUp img={img}/>)
     }
-    const signIn = <SignIn goToSignUp={goTosignUp}/>
+    const signIn = <SignIn img={img} goToSignUp={goTosignUp}/>
     let [viewableScreen, setViewableScreen] = useState(signIn);
     return (
         <div className={style.login}>
-            <div className={style.cover}>
-                <img src={loginImage} className={style.coverImage}/>
-            </div>
-            <div className={style.inputContainer}>{viewableScreen}</div>
+        {viewableScreen}
+        {img}
         </div>
     )
 }

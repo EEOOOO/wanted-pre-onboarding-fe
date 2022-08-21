@@ -1,0 +1,23 @@
+import React from 'react';
+import style from '../sign_in/sign_in.module.css'
+
+const SignIn = (props) => {
+    return(
+        <div className={style.signIn}>
+            <h1>Sign in</h1>
+            <form className={style.siginForm}>
+                <div className={style.email}>
+                    <span className={style.titleEmail}></span>
+                    <input type="text" className={style.inputEmail}></input>
+                </div>
+                <div className={style.password}>
+                    <span className={style.titlePassword}></span>
+                    <input type="text" className={style.inputPassWord}></input>
+                </div>
+                <button type="submit" className={style.submitButton}>sibmit</button>
+            </form>
+        </div>
+    )
+}
+
+export default SignIn;

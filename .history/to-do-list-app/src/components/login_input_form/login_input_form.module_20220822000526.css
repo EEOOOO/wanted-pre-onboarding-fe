@@ -1,0 +1,9 @@
+.email,
+.password {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+input {
+  width: 80%;
+}

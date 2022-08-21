@@ -1,0 +1,17 @@
+.login {
+  display: flex;
+  height: 100vh;
+  justify-content: space-between;
+  align-items: center;
+}
+.inputContainer {
+  width: 50%;
+  min-width: 235px;
+}
+.cover {
+  width: 50%;
+}
+.coverImage {
+  width: 80%;
+  height: 80%;
+}

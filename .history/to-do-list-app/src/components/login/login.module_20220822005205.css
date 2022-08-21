@@ -1,0 +1,16 @@
+.login {
+  display: flex;
+  height: 100vh;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.inputContainer {
+  width: 50%;
+  min-width: 235px;
+  max-width: 400px;
+}
+.cover {
+  width: 50%;
+  min-width: 235px;
+  max-width: 400px;
+}

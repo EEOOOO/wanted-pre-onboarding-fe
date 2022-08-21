@@ -1,0 +1,14 @@
+.signIn {
+  padding: 1rem;
+}
+.signUpText {
+  color: lightGrey;
+  font-size: 0.7rem;
+}
+.signUpButton {
+  background-color: transparent;
+  border: none;
+  padding: 0.5rem;
+  color: rgb(149, 99, 251);
+  font-weight: 600;
+}

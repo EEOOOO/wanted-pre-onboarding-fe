@@ -1,0 +1,13 @@
+.login {
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+.inputContainer {
+  width: 50%;
+}
+.coverImage {
+  width: 50%;
+  background-color: blue;
+}

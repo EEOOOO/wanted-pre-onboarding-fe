@@ -1,0 +1,22 @@
+.email,
+.password {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+input {
+  width: 60%;
+  font-size: 0.5rem;
+  padding: 0.5rem;
+  margin: 1rem;
+  border: none;
+  border-bottom: 0.5px solid gray;
+}
+.submitButton {
+  background-color: rgb(149, 99, 251);
+  color: white;
+  border: none;
+  padding: 0.7rem 1.5rem;
+  border-radius: 17px;
+  margin: 0.3rem;
+}

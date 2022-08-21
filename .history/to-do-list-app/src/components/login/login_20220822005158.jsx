@@ -13,7 +13,7 @@ const Login = (props) => {
     return (
         <div className={style.login}>
             <div className={style.cover}>
-                <img src={loginImage} className={style.coverImage}/>
+            <img src={loginImage} className={style.coverImage}/>
             </div>
             <div className={style.inputContainer}>{viewableScreen}</div>
         </div>

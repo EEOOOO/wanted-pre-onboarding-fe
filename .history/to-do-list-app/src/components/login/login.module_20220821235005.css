@@ -1,0 +1,19 @@
+.login {
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  flex-items: space-between;
+}
+.inputContainer {
+  width: 50%;
+  border: 1px solid gray;
+  min-width: 235px;
+  max-width: 400px;
+}
+.coverImage {
+  width: 50%;
+  background-color: blue;
+  min-width: 235px;
+  max-width: 400px;
+}
