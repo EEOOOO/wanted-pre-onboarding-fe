@@ -45,7 +45,8 @@ export const signIn = async (email, password) => {
 
     axios(config)
     .then(function (response) {
-    console.log(JSON.stringify(response.data));
+        localStorage.setItem(response.data.access_token, response.data.access_token);
+        console.log(localStorage.getItem(response.data.access_token));
     })
     .catch(function (error) {
     console.log(error);
