@@ -29,12 +29,14 @@ const SignIn = ({ goToSignUp, checkEmailValid, checkPasswordValid }) => {
         const emailInput = event.target[0].value;
         const passwordInput = event.target[1].value;
 
-        signIn(emailInput, passwordInput);
-
-        if (localStorage.getItem(emailInput)){
-            console.log('done');
-            navigate("../todo", { replace: true });
+        let gotoTodo = function(){
+            
+            if (localStorage.getItem(emailInput)){
+                console.log('done');
+                navigate("../todo", { replace: true });
+            }
         }
+        signIn(emailInput, passwordInput, gotoTodo);
     }
     
     return(

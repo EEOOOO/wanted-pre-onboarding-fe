@@ -1,8 +1,5 @@
 import axios from 'axios'
 
-const instance = axios.create({
-    baseURL: "https://5co7shqbsf.execute-api.ap-northeast-2.amazonaws.com/production/",
-});
 export const signUp = (email, password) => {
     var axios = require('axios');
     var data = JSON.stringify({
@@ -27,7 +24,7 @@ export const signUp = (email, password) => {
     console.log(error);
     });
 }
-export const signIn = async (email, password) => {
+export const signIn = async (email, password, gotoTodo) => {
     var axios = require('axios');
     var data = JSON.stringify({
     "email": `${email}`,
@@ -46,7 +43,7 @@ export const signIn = async (email, password) => {
     axios(config)
     .then(function (response) {
         localStorage.setItem(email, response.data.access_token);
-        console.log(localStorage.getItem(email));
+        gotoTodo();
     })
     .catch(function (error) {
     console.log(error);
