@@ -33,6 +33,7 @@ const Login = (props) => {
     const goTosignUp = () => {
         setViewableScreen(<SignUp 
                             checkEmailValid={checkEmailValid} 
+                            goToSignUp={goTosignUp}
                             checkPasswordValid={checkPasswordValid}
                             />)
     }

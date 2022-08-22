@@ -28,19 +28,29 @@ const Login = (props) => {
                 return false
             } 
     }
-    
+    const checkValid = async (event) => {
+        const emailInput = event.target.form[0].value;
+        const passwordInput = event.target.form[1].value;
+
+        const emailValid = await checkEmailValid(emailInput)
+        const passwordValid = await checkPasswordValid(passwordInput)
+        if (emailValid && passwordValid){
+            setInputValidation(true)
+        } else{
+            setInputValidation(false)
+        }
+
+    }
     
     const goTosignUp = () => {
-        setViewableScreen(<SignUp 
-                            checkEmailValid={checkEmailValid} 
-                            checkPasswordValid={checkPasswordValid}
-                            />)
+        setViewableScreen(<SignUp/>)
     }
     const signIn = <SignIn 
-                    checkEmailValid={checkEmailValid} 
-                    goToSignUp={goTosignUp}
-                    checkPasswordValid={checkPasswordValid}
-                    />
+    checkEmailValid={checkEmailValid} 
+    goToSignUp={goTosignUp}
+    checkPasswordValid={checkPasswordValid}
+    checkValid={checkValid}
+    />
     let [viewableScreen, setViewableScreen] = useState(signIn);
     return (
         <div className={style.login}>

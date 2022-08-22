@@ -2,21 +2,9 @@ import React, { useState } from 'react';
 import LoginInputForm from '../login_input_form/login_input_form';
 import style from '../sign_in/sign_in.module.css'
 
-const SignIn = ({ goToSignUp, checkEmailValid, checkPasswordValid }) => {
+const SignIn = ({ goToSignUp, checkValid }) => {
     const [inputValidation, setInputValidation] = useState(false)
-    const checkValid = async (event) => {
-        const emailInput = event.target.form[0].value;
-        const passwordInput = event.target.form[1].value;
 
-        const emailValid = await checkEmailValid(emailInput)
-        const passwordValid = await checkPasswordValid(passwordInput)
-        if (emailValid && passwordValid){
-            setInputValidation(true)
-        } else{
-            setInputValidation(false)
-        }
-
-    }
     const handleSignInSubmit = (event) => {
         event.preventDefault();
         if (inputValidation === false){

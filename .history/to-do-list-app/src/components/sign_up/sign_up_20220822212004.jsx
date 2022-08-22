@@ -1,8 +1,8 @@
 import React from 'react';
 import style from '../sign_up/sign_up.module.css'
 import LoginInputForm from '../login_input_form/login_input_form';
-import { useState } from 'react';
-const SignUp = ({ checkEmailValid, checkPasswordValid }) => {
+
+const SignUp = ({ checkEmailValid, checkEmailValid }) => {
     const [inputValidation, setInputValidation] = useState(false)
     const checkValid = async (event) => {
         const emailInput = event.target.form[0].value;

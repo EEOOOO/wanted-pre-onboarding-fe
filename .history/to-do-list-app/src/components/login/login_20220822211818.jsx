@@ -33,14 +33,15 @@ const Login = (props) => {
     const goTosignUp = () => {
         setViewableScreen(<SignUp 
                             checkEmailValid={checkEmailValid} 
+                            goToSignUp={goTosignUp}
                             checkPasswordValid={checkPasswordValid}
                             />)
     }
     const signIn = <SignIn 
-                    checkEmailValid={checkEmailValid} 
-                    goToSignUp={goTosignUp}
-                    checkPasswordValid={checkPasswordValid}
-                    />
+    checkEmailValid={checkEmailValid} 
+    goToSignUp={goTosignUp}
+    checkPasswordValid={checkPasswordValid}
+    />
     let [viewableScreen, setViewableScreen] = useState(signIn);
     return (
         <div className={style.login}>

@@ -1,8 +1,8 @@
-import React from 'react';
-import style from '../sign_up/sign_up.module.css'
+import React, { useState } from 'react';
 import LoginInputForm from '../login_input_form/login_input_form';
-import { useState } from 'react';
-const SignUp = ({ checkEmailValid, checkPasswordValid }) => {
+import style from '../sign_in/sign_in.module.css'
+
+const SignIn = ({ goToSignUp, checkValid }) => {
     const [inputValidation, setInputValidation] = useState(false)
     const checkValid = async (event) => {
         const emailInput = event.target.form[0].value;
@@ -15,22 +15,29 @@ const SignUp = ({ checkEmailValid, checkPasswordValid }) => {
         } else{
             setInputValidation(false)
         }
+
     }
-    const handleSignUpSubmit = (event) => {
+    const handleSignInSubmit = (event) => {
         event.preventDefault();
+        if (inputValidation === false){
+            return
+        }
         console.log(event);
     }
+    
     return(
-        <div className={style.signUp}>
-            <h1>Sign Up</h1>
+        <div className={style.signIn}>
+            <h1>Sign in</h1>
             <LoginInputForm
-            handleSubmit={handleSignUpSubmit}
-            submitContent={'Sign Up'} 
+            handleSubmit={handleSignInSubmit}
+            submitContent={'Sign in'} 
             checkValid={checkValid}
             inputValidation={inputValidation}
             />
+            <span className={style.signUpText}>If you don't have an account yet? &gt; </span>
+            <button className={style.signUpButton} onClick={goToSignUp}>Sign Up</button>
         </div>
     )
 }
 
-export default SignUp;
+export default SignIn;
