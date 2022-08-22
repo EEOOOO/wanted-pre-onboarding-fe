@@ -5,11 +5,10 @@ import style from '../sign_in/sign_in.module.css'
 const SignIn = ({goToSignUp}) => {
     const handleSignInSubmit = (event) => {
         event.preventDefault();
-        if (inputValidation === false){
-            return
-        }
         console.log(event);
     }
+    const [emailValid, setEmailValid] = useState(false)
+    const [passwordValid, setpasswordValid] = useState(false)
     const [inputValidation, setInputValidation] = useState(false)
 
     const checkEmailValid = async (emailInput) => {
@@ -39,12 +38,13 @@ const SignIn = ({goToSignUp}) => {
         const passwordInput = event.target.form[1].value;
 
         const emailValid = await checkEmailValid(emailInput)
-        const passwordValid = await checkPasswordValid(passwordInput)
+        const passswordValid = await checkPasswordValid(passwordInput)
         if (emailValid && passwordValid){
             setInputValidation(true)
         } else{
             setInputValidation(false)
         }
+        
 
     }
     

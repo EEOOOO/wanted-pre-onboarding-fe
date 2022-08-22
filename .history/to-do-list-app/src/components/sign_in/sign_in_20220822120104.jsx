@@ -5,9 +5,6 @@ import style from '../sign_in/sign_in.module.css'
 const SignIn = ({goToSignUp}) => {
     const handleSignInSubmit = (event) => {
         event.preventDefault();
-        if (inputValidation === false){
-            return
-        }
         console.log(event);
     }
     const [inputValidation, setInputValidation] = useState(false)
@@ -45,6 +42,7 @@ const SignIn = ({goToSignUp}) => {
         } else{
             setInputValidation(false)
         }
+        
 
     }
     

@@ -5,49 +5,44 @@ import style from '../sign_in/sign_in.module.css'
 const SignIn = ({goToSignUp}) => {
     const handleSignInSubmit = (event) => {
         event.preventDefault();
-        if (inputValidation === false){
-            return
-        }
         console.log(event);
     }
+    let emailValid = false
+    let passwordValid = false
     const [inputValidation, setInputValidation] = useState(false)
-
-    const checkEmailValid = async (emailInput) => {
-        if(emailInput.includes('@')){
-            const atIndex = emailInput.indexOf('@');
-            const id = emailInput.substr(0, atIndex);
-            const domain = emailInput.substr(atIndex+1);
-            const allowList = ['.org', '.com', '.net']
-            if (id !== '' && allowList.includes(domain.substr(-4))){
-                return true
-            } else{
-                return false
-            }
-        } else {
-            return false
-        } 
-    }
-    const checkPasswordValid = async(passwordInput) => {
-        if (passwordInput.length >= 8){
-            return true
+    const checkValid = (event) => {
+        if(event.target.id === 'inputEmail'){
+            let emailInput = event.target.value;
+            if(emailInput.includes('@')){
+                const atIndex = emailInput.indexOf('@');
+                const id = emailInput.substr(0, atIndex);
+                const domain = emailInput.substr(atIndex+1);
+                const allowList = ['.org', '.com', '.net']
+                if (id !== '' && allowList.includes(domain.substr(-4))){
+                    emailValid = true
+                } else{
+                    emailValid = false
+                }
             } else {
-                return false
-            } 
-    }
-    const checkValid = async (event) => {
-        const emailInput = event.target.form[0].value;
-        const passwordInput = event.target.form[1].value;
-
-        const emailValid = await checkEmailValid(emailInput)
-        const passwordValid = await checkPasswordValid(passwordInput)
+                emailValid = false
+            }
+        }
+        if(event.target.id === 'inputPassword'){
+            if(event.target.value.length >= 8){
+                passwordValid = true
+            } else {
+                passwordValid = false
+            }
+        }
         if (emailValid && passwordValid){
             setInputValidation(true)
+            console.log(inputValidation)
         } else{
             setInputValidation(false)
+            console.log(inputValidation)
         }
-
+        
     }
-    
     return(
         <div className={style.signIn}>
             <h1>Sign in</h1>

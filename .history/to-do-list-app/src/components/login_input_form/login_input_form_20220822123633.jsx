@@ -18,14 +18,14 @@ const LoginInputForm = ({handleSubmit, submitContent, checkValid, inputValidatio
             className={style.inputPassWord}
             placeholder='Password'></input>            
         </div>
-        {!inputValidation && <p className={style.inputTypeWarning}>
-            Please keep email format and make password longer than 8 digit.
-        </p>}
         <button 
         type="submit" 
         className={inputValidation? style.submitButton: style.disableSubmit}>
         {submitContent}
         </button>
+        {!inputValidation && <span className={style.inputTypeWarning}>
+            Please keep email format and make password longer than 8 digit.
+        </span>}
     </form>
     );
 };

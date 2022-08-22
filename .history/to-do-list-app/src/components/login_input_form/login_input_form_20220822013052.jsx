@@ -1,9 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import style from '../login_input_form/login_input_form.module.css';
-const LoginInputForm = ({handleSubmit, submitContent, checkValid, inputValidation}) => {
-    console.log(inputValidation)
+const LoginInputForm = ({handleSubmit, submitContent, checkValid}) => {
     return (
-    <form className={style.inputForm} onSubmit={handleSubmit} onChange ={checkValid}>
+    <form className={style.inputForm} onSubmit={handleSubmit} onChange={checkValid}>
         <div className={style.email}>
             <input 
             id="inputEmail"
@@ -18,14 +17,7 @@ const LoginInputForm = ({handleSubmit, submitContent, checkValid, inputValidatio
             className={style.inputPassWord}
             placeholder='Password'></input>            
         </div>
-        {!inputValidation && <p className={style.inputTypeWarning}>
-            Please keep email format and make password longer than 8 digit.
-        </p>}
-        <button 
-        type="submit" 
-        className={inputValidation? style.submitButton: style.disableSubmit}>
-        {submitContent}
-        </button>
+        checkValid && <button type="submit" className={style.submitButton}>{submitContent}</button>
     </form>
     );
 };
