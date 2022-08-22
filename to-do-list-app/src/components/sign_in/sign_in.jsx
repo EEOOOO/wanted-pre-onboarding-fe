@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { signIn } from '../../api';
 import LoginInputForm from '../login_input_form/login_input_form';
 import style from '../sign_in/sign_in.module.css'
 
@@ -22,7 +23,7 @@ const SignIn = ({ goToSignUp, checkEmailValid, checkPasswordValid }) => {
         if (inputValidation === false){
             return
         }
-        console.log(event);
+        signIn(event.target[0].value, event.target[1].value);
     }
     
     return(

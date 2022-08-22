@@ -2,6 +2,7 @@ import React from 'react';
 import style from '../sign_up/sign_up.module.css'
 import LoginInputForm from '../login_input_form/login_input_form';
 import { useState } from 'react';
+import { signUp } from '../../api';
 const SignUp = ({ checkEmailValid, checkPasswordValid }) => {
     const [inputValidation, setInputValidation] = useState(false)
     const checkValid = async (event) => {
@@ -18,7 +19,7 @@ const SignUp = ({ checkEmailValid, checkPasswordValid }) => {
     }
     const handleSignUpSubmit = (event) => {
         event.preventDefault();
-        console.log(event);
+        signUp(event.target[0].value, event.target[1].value);
     }
     return(
         <div className={style.signUp}>
