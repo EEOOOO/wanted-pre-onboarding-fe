@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
 import { signIn } from '../../api';
 import LoginInputForm from '../login_input_form/login_input_form';
-import style from '../sign_in/sign_in.module.css'
+import style from '../sign_in/sign_in.module.css';
+import {useNavigate} from 'react-router-dom';
 
 const SignIn = ({ goToSignUp, checkEmailValid, checkPasswordValid }) => {
+    
+    let navigate = useNavigate();
     const [inputValidation, setInputValidation] = useState(false)
     const checkValid = async (event) => {
         const emailInput = event.target.form[0].value;
@@ -23,7 +26,15 @@ const SignIn = ({ goToSignUp, checkEmailValid, checkPasswordValid }) => {
         if (inputValidation === false){
             return
         }
-        signIn(event.target[0].value, event.target[1].value);
+        const emailInput = event.target[0].value;
+        const passwordInput = event.target[1].value;
+
+        signIn(emailInput, passwordInput);
+
+        if (localStorage.getItem(emailInput)){
+            console.log('done');
+            navigate("../todo", { replace: true });
+        }
     }
     
     return(

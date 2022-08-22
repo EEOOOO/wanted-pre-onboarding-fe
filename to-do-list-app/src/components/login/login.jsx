@@ -1,10 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import SignIn from '../sign_in/sign_in';
 import SignUp from '../sign_up/sign_up';
 import style from '../login/login.module.css';
 import loginImage from '../login/login_img.png';
+import { useNavigate } from 'react-router-dom';
 
 const Login = (props) => {
+    const navigate = useNavigate();
+    useEffect(() => {
+        if(localStorage.length){
+          navigate("/todo")
+        }
+      }, []); 
     
     const checkEmailValid = async (emailInput) => {
         if(emailInput.includes('@')){
