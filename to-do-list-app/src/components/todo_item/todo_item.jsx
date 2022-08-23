@@ -1,7 +1,7 @@
 import React from 'react';
 import style from '../todo_item/todo_item.module.css';
 
-const TodoItem = ({id, todo, isCompleted, userId}) => {
+const TodoItem = ({id, todo, isCompleted}) => {
     console.log(id, todo)
     return (
         <li className={style.listItem} key={id}>
@@ -11,7 +11,9 @@ const TodoItem = ({id, todo, isCompleted, userId}) => {
                 className={style.checkbox} 
                 value={id}>
                 </input>
-                <span>{todo}</span>
+                {isCompleted?
+                <del>{todo}</del>:
+                <span>{todo}</span>}
                 <button className={style.modifyButton}>🛠</button>
             </form>
         </li>

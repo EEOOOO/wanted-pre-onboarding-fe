@@ -8,7 +8,7 @@ function TodoInputForm({updateTodoList}) {
     }
     const handleSubmit = (event) => {
         event.preventDefault();
-        updateTodoList(newTodo);
+        updateTodoList(newTodo, false);
         event.target[0].value = '';
     }
     return (
