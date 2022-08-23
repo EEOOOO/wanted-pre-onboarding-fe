@@ -8,10 +8,12 @@ function App() {
   const [userToken, setUserToken] = useState('');
   const [todoItems, setTodoItems] = useState([]);
   
-  const updateTodoList = (todoItem) => {
+  const updateTodoList = async (todoItem) => {
     createTodo(todoItem, userToken);
-    const updatedList = getTodos(userToken);
-    //setTodoItems(updatedList);
+    const updatedList = await getTodos(userToken);
+    setTodoItems([updatedList]);
+    console.log(updatedList)
+    console.log(todoItems);
   }
   return <div className={style.App}>
     <Routes>
@@ -20,7 +22,7 @@ function App() {
         <Todo 
         userToken={userToken} 
         todoItems={todoItems} 
-        updateTodoList={updateTodoList}/>}></Route>
+        updateTodoList={updateTodoList}/>}></Route>      
     </Routes>
   </div>
 }

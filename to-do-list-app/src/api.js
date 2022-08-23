@@ -86,13 +86,15 @@ export const getTodos = async (access_token) => {
     data : data
     };
 
-    axios(config)
+    
+    return await axios(config)
     .then(function (response) {
-    console.log(JSON.stringify(response.data));
+       return response.data;
     })
     .catch(function (error) {
     console.log(error);
     });
+
 }
 
 export const updateTodos = async(id, todoItem, isCompleted) => {

@@ -5,6 +5,7 @@ import headerImage from './main_img.png';
 import TodoInputForm from '../todo_input_form/todo_input_form';
 import TodoList from '../todo_list/todo_list';
 const Todo = ({userToken, todoItems, updateTodoList}) => {
+    console.log(todoItems);
     const navigate = useNavigate();
     useEffect(() => {
         if(!localStorage.length ||userToken === ''){
