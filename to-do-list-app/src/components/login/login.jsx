@@ -5,10 +5,10 @@ import style from '../login/login.module.css';
 import loginImage from '../login/login_img.png';
 import { useNavigate } from 'react-router-dom';
 
-const Login = (props) => {
+const Login = ({userToken, setUserToken}) => {
     const navigate = useNavigate();
     useEffect(() => {
-        if(localStorage.length){
+        if(localStorage.length && userToken !== ''){
           navigate("/todo")
         }
       }, []); 
@@ -36,7 +36,6 @@ const Login = (props) => {
             } 
     }
     
-    
     const goTosignUp = () => {
         setViewableScreen(<SignUp 
                             checkEmailValid={checkEmailValid} 
@@ -47,6 +46,7 @@ const Login = (props) => {
                     checkEmailValid={checkEmailValid} 
                     goToSignUp={goTosignUp}
                     checkPasswordValid={checkPasswordValid}
+                    setUserToken={setUserToken}
                     />
     let [viewableScreen, setViewableScreen] = useState(signIn);
     return (

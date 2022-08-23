@@ -1,13 +1,13 @@
 import axios from 'axios'
 
 export const signUp = (email, password) => {
-    var axios = require('axios');
-    var data = JSON.stringify({
+    let axios = require('axios');
+    let data = JSON.stringify({
     "email": `${email}`,
     "password": `${password}`
     });
 
-    var config = {
+    let config = {
     method: 'post',
     url: 'https://5co7shqbsf.execute-api.ap-northeast-2.amazonaws.com/production/auth/signup',
     headers: { 
@@ -25,13 +25,13 @@ export const signUp = (email, password) => {
     });
 }
 export const signIn = async (email, password, gotoTodo) => {
-    var axios = require('axios');
-    var data = JSON.stringify({
+    let axios = require('axios');
+    let data = JSON.stringify({
     "email": `${email}`,
     "password": `${password}`
     });
 
-    var config = {
+    let config = {
     method: 'post',
     url: 'https://5co7shqbsf.execute-api.ap-northeast-2.amazonaws.com/production/auth/signin',
     headers: { 
@@ -50,11 +50,10 @@ export const signIn = async (email, password, gotoTodo) => {
     });
 }
 
-export const createTodo = async (todo, access_token) => {
+export const createTodo = async (todoItem, access_token) => {
     let data = JSON.stringify({
-    "todo": todo
-    });
-
+        "todo": `${todoItem}`
+      });
     let config = {
     method: 'post',
     url: 'https://5co7shqbsf.execute-api.ap-northeast-2.amazonaws.com/production/todos',
@@ -74,18 +73,51 @@ export const createTodo = async (todo, access_token) => {
     });
 }
 
-export const getTodos = async (todo) => {
-    try{
-        const response = await axios.get('/todos',
-        {
-            todo:{todo}
-        },{
-            headers:{
-                'Authorization':'Bearer access_token'
-            }
-        })
-        console.log(response)
-    } catch (error) {
-        console.error(error)
-    }
+export const getTodos = async (access_token) => {
+    let axios = require('axios');
+    let data = '';
+
+    let config = {
+    method: 'get',
+    url: 'https://5co7shqbsf.execute-api.ap-northeast-2.amazonaws.com/production/todos',
+    headers: { 
+        'Authorization': `Bearer ${access_token}`
+    },
+    data : data
+    };
+
+    axios(config)
+    .then(function (response) {
+    console.log(JSON.stringify(response.data));
+    })
+    .catch(function (error) {
+    console.log(error);
+    });
+}
+
+export const updateTodos = async(id, todoItem, isCompleted) => {
+    let axios = require('axios');
+    var data = JSON.stringify({
+    "todo": todoItem,
+    "isCompleted": isCompleted
+    });
+
+    var config = {
+    method: 'get',
+    url: `https://5co7shqbsf.execute-api.ap-northeast-2.amazonaws.com/production/todos/:${id}`,
+    headers: { 
+        'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InF3ZUBnbWFpbC5jb20iLCJzdWIiOjI1MDAsImlhdCI6MTY2MTE4MTU5MSwiZXhwIjoxNjYxNzg2MzkxfQ.v6eZXFnvATaotm3-WqSY7AItpTfZ2hKMKeU0bULHDqM', 
+        'Content-Type': 'application/json'
+    },
+    data : data
+    };
+
+    axios(config)
+    .then(function (response) {
+    console.log(JSON.stringify(response.data));
+    })
+    .catch(function (error) {
+    console.log(error);
+    });
+
 }

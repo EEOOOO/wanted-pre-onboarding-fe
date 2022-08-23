@@ -4,7 +4,7 @@ import LoginInputForm from '../login_input_form/login_input_form';
 import style from '../sign_in/sign_in.module.css';
 import {useNavigate} from 'react-router-dom';
 
-const SignIn = ({ goToSignUp, checkEmailValid, checkPasswordValid }) => {
+const SignIn = ({ goToSignUp, checkEmailValid, checkPasswordValid, setUserToken }) => {
     
     let navigate = useNavigate();
     const [inputValidation, setInputValidation] = useState(false)
@@ -32,7 +32,7 @@ const SignIn = ({ goToSignUp, checkEmailValid, checkPasswordValid }) => {
         let gotoTodo = function(){
             
             if (localStorage.getItem(emailInput)){
-                console.log('done');
+                setUserToken(localStorage.getItem(emailInput))
                 navigate("../todo", { replace: true });
             }
         }
