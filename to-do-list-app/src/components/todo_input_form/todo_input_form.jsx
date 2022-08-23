@@ -11,9 +11,9 @@ function TodoInputForm(props) {
         console.dir(newTodo);
     }
     return (
-        <form onSubmit={handleSubmit}>
-            <input type="text" onChange={handleChange}></input>
-            <button>New</button>
+        <form onSubmit={handleSubmit} className={style.inputForm}>
+            <input type="text" className={style.inputField} onChange={handleChange} placeholder="Type your new Assignment"></input>
+            <button className={style.sumbitButton}>New</button>
         </form>
     );
 }

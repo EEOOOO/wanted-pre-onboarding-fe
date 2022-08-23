@@ -1,13 +1,13 @@
 import style from './app.module.css';
 import { Routes, Route } from 'react-router-dom'
 import Login from './components/login/login';
-import TodoList from './components/todoList/todo_list';
+import Todo from './components/todo/todo';
 
 function App() {
   return <div className={style.App}>
     <Routes>
       <Route path="/" element={<Login/>}></Route>
-      <Route path="todo" element={<TodoList/>}></Route>
+      <Route path="todo" element={<Todo/>}></Route>
     </Routes>
   </div>
 }
