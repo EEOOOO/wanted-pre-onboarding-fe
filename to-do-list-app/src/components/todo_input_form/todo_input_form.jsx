@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import style from '../todo_input_form/todo_input_form.module.css';
 
-function TodoInputForm({createTodo, access_token}) {
+function TodoInputForm({updateTodoList}) {
     const [newTodo, setNewTodo] = useState('');
     const handleChange = (event) => {
         setNewTodo(event.target.value);
     }
     const handleSubmit = (event) => {
         event.preventDefault();
-        createTodo(newTodo, access_token);
+        updateTodoList(newTodo);
         event.target[0].value = '';
     }
     return (

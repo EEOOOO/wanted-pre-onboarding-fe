@@ -4,7 +4,7 @@ import style from './todo.module.css';
 import headerImage from './main_img.png';
 import TodoInputForm from '../todo_input_form/todo_input_form';
 import TodoList from '../todo_list/todo_list';
-const Todo = ({setUserToken, userToken, todoItems, createTodo}) => {
+const Todo = ({userToken, todoItems, updateTodoList}) => {
     const navigate = useNavigate();
     useEffect(() => {
         if(!localStorage.length ||userToken === ''){
@@ -20,8 +20,7 @@ const Todo = ({setUserToken, userToken, todoItems, createTodo}) => {
         <img src={headerImage} className={style.headerImage}></img>
         </header>
         <TodoInputForm 
-        createTodo={createTodo} 
-        access_token={userToken}/>
+        updateTodoList={updateTodoList}/>
         <TodoList todoItems={todoItems} />
       </div>
     )

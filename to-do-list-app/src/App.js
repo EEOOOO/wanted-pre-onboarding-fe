@@ -7,25 +7,20 @@ import { createTodo, getTodos, updateTodos} from './api';
 function App() {
   const [userToken, setUserToken] = useState('');
   const [todoItems, setTodoItems] = useState([]);
-  const updateTodoItems = (newTodoItem) => {
-    console.log(newTodoItem);
-    createTodo(newTodoItem, userToken);
-    console.log(userToken);
-    getTodos(userToken);
-    setTodoItems([
-      ...todoItems,
-      newTodoItem
-    ]);
+  
+  const updateTodoList = (todoItem) => {
+    createTodo(todoItem, userToken);
+    const updatedList = getTodos(userToken);
+    //setTodoItems(updatedList);
   }
   return <div className={style.App}>
     <Routes>
       <Route path="/" element={<Login userToken={userToken} setUserToken={setUserToken}/>}></Route>
       <Route path="todo" element={
         <Todo 
-        setUsertoken={setUserToken} 
         userToken={userToken} 
         todoItems={todoItems} 
-        createTodo={createTodo}/>}></Route>
+        updateTodoList={updateTodoList}/>}></Route>
     </Routes>
   </div>
 }
