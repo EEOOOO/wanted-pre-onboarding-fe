@@ -1,14 +1,21 @@
 import React, { useState } from 'react';
 import style from '../todo_input_form/todo_input_form.module.css';
 
-function TodoInputForm(props) {
+function TodoInputForm({updateTodoItems, lastTodoId}) {
     const [newTodo, setNewTodo] = useState('');
     const handleChange = (event) => {
         setNewTodo(event.target.value);
     }
     const handleSubmit = (event) => {
         event.preventDefault();
-        console.dir(newTodo);
+        const newItem = {
+            "id" : lastTodoId + 1,
+            "todo": newTodo,
+            "isCompleted":false,
+            "userId": 1
+        }
+        updateTodoItems(newItem);
+        event.target[0].value = '';
     }
     return (
         <form onSubmit={handleSubmit} className={style.inputForm}>

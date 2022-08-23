@@ -15,7 +15,7 @@ const LoginInputForm = ({handleSubmit, submitContent, checkValid, inputValidatio
             <input 
             id="inputPassword"
             type="text" 
-            className={style.inputPassWord}
+            className={style.inputPassword}
             placeholder='Password'></input>            
         </div>
         {!inputValidation && <p className={style.inputTypeWarning}>

@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Gowun+Dodum&family=Hi+Melody&display=swap");
 .inputForm {
   display: flex;
   align-items: center;
@@ -8,12 +9,13 @@
 .inputField {
   border-radius: 5px;
   width: 30%;
-  font-size: 1rem;
-  padding: 1rem;
+  font-size: 1.3rem;
+  padding: 0.7rem 1.5rem;
   margin-right: 1rem;
   border: none;
   -webkit-box-shadow: 6px 6px 15px 5px rgba(218, 218, 218, 0.5);
   box-shadow: 6px 6px 15px 5px rgba(218, 218, 218, 0.5);
+  font-family: "Hi Melody", cursive;
 }
 .inputField::placeholder {
   opacity: 0.3;
