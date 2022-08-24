@@ -30,11 +30,21 @@ https://youtu.be/bgxEaPjI8aM
 
 
 
-## 사용 라이브러리
+## 사용 라이브러리 + 실행 방법 
 
 - React Router : "react-router-dom": "^6.3.0"
 - Axios : "axios": "^0.27.2",
 - Styled Components
+
+: react-router-dom , axios를 해당 버전에 맞게 설치해줍니다. (작성자는 yarn을 사용해 설치했습니다. 편하신 방법을 이용해 설치하면 됩니다.)
+```javascript
+// 빌드
+yarn build
+
+// 실행
+yarn start
+```
+
 
 
 
