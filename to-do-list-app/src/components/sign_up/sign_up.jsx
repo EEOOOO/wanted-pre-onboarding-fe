@@ -3,7 +3,9 @@ import style from '../sign_up/sign_up.module.css'
 import LoginInputForm from '../login_input_form/login_input_form';
 import { useState } from 'react';
 import { signUp } from '../../api';
-const SignUp = ({ checkEmailValid, checkPasswordValid }) => {
+import {useNavigate} from 'react-router-dom'
+const SignUp = ({ checkEmailValid, checkPasswordValid}) => {
+    const navigate = useNavigate();
     const [inputValidation, setInputValidation] = useState(false)
     const checkValid = async (event) => {
         const emailInput = event.target.form[0].value;
@@ -17,9 +19,11 @@ const SignUp = ({ checkEmailValid, checkPasswordValid }) => {
             setInputValidation(false)
         }
     }
+    const [signUpCompleted, setSignUpCompleted] = useState(false)
     const handleSignUpSubmit = (event) => {
         event.preventDefault();
         signUp(event.target[0].value, event.target[1].value);
+        setSignUpCompleted(true)
     }
     return(
         <div className={style.signUp}>
@@ -30,6 +34,7 @@ const SignUp = ({ checkEmailValid, checkPasswordValid }) => {
             checkValid={checkValid}
             inputValidation={inputValidation}
             />
+            {signUpCompleted && <h4>Signed up successfully ~ please press f5</h4>}
         </div>
     )
 }

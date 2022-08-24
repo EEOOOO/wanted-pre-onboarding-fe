@@ -13,7 +13,7 @@ const Login = ({userToken, setUserToken}) => {
         }
       }, []); 
     console.log('login',userToken);
-    console.log('login',localStorage);
+    console.log('todo',localStorage);
     
     const checkEmailValid = async (emailInput) => {
         if(emailInput.includes('@')){
@@ -42,6 +42,13 @@ const Login = ({userToken, setUserToken}) => {
         setViewableScreen(<SignUp 
                             checkEmailValid={checkEmailValid} 
                             checkPasswordValid={checkPasswordValid}
+                            setViewableScreen={setViewableScreen}
+                            signIn={<SignIn 
+                    checkEmailValid={checkEmailValid} 
+                    goToSignUp={goTosignUp}
+                    checkPasswordValid={checkPasswordValid}
+                    setUserToken={setUserToken}
+                    />}
                             />)
     }
     const signIn = <SignIn 
