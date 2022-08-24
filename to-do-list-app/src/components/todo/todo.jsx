@@ -4,18 +4,17 @@ import style from './todo.module.css';
 import headerImage from './main_img.png';
 import TodoInputForm from '../todo_input_form/todo_input_form';
 import TodoList from '../todo_list/todo_list';
-const Todo = ({userToken, todoItems, updateTodoList}) => {
-    
-    useEffect(()=>{updateTodoList('', true)},[])
-    console.log(todoItems);
+const Todo = ({userToken, todoItems, updateTodoList, updateTodoItem, deleteTodoItem}) => {
+  
+    useEffect(()=>{updateTodoList('', true)},[]);
     const navigate = useNavigate();
     useEffect(() => {
-        if(!localStorage.length ||userToken === ''){
+        if(!localStorage.key(userToken)){          
           navigate("/")
         }
       }, []); 
       
-    let lastTodoId = todoItems.length;
+      
     return(
       <div className={style.todo}>
         <header className={style.header}>
@@ -24,7 +23,10 @@ const Todo = ({userToken, todoItems, updateTodoList}) => {
         </header>
         <TodoInputForm 
         updateTodoList={updateTodoList}/>
-        <TodoList todoItems={todoItems} />
+        <TodoList 
+        todoItems={todoItems} 
+        updateTodoItem={updateTodoItem} 
+        deleteTodoItem={deleteTodoItem}/>
       </div>
     )
 }

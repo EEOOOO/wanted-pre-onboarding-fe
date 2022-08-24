@@ -3,15 +3,24 @@ import { Routes, Route } from 'react-router-dom'
 import Login from './components/login/login';
 import Todo from './components/todo/todo';
 import { useEffect, useState } from 'react';
-import { createTodo, getTodos, updateTodos} from './api';
+import { createTodo, getTodos, updateTodos, deleteTodos} from './api';
 function App() {
   const [userToken, setUserToken] = useState('');
   const [todoItems, setTodoItems] = useState([]);
 
   const updateTodoList = async (todoItem, init) => {
     if(!init){
-      createTodo(todoItem, userToken);
+      await createTodo(todoItem, userToken);
     }
+    const updatedList = await getTodos(userToken);
+    setTodoItems([updatedList]);
+  }
+  const updateTodoItem = async (id,todoItem, isCompleted)=> {
+    console.log(id, todoItem, isCompleted, userToken)
+    await updateTodos(id, todoItem, isCompleted, userToken);
+  }
+  const deleteTodoItem = async (id) => {
+    await deleteTodos(id, userToken)
     const updatedList = await getTodos(userToken);
     setTodoItems([updatedList]);
   }
@@ -22,7 +31,10 @@ function App() {
         <Todo 
         userToken={userToken} 
         todoItems={todoItems}
-        updateTodoList={updateTodoList}/>}></Route>      
+        updateTodoList={updateTodoList}
+        updateTodoItem={updateTodoItem}
+        deleteTodoItem={deleteTodoItem}
+        />}></Route>      
     </Routes>
   </div>
 }

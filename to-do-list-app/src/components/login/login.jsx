@@ -8,7 +8,7 @@ import { useNavigate } from 'react-router-dom';
 const Login = ({userToken, setUserToken}) => {
     const navigate = useNavigate();
     useEffect(() => {
-        if(localStorage.length && userToken !== ''){
+        if(localStorage.key(userToken)){
           navigate("/todo")
         }
       }, []); 

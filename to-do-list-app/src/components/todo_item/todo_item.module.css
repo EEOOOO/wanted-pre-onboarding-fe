@@ -27,3 +27,35 @@
 .modifyButton:hover {
   background-color: #ecabff;
 }
+
+.deleteButton {
+  background-color: #ffacac;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  padding: 0.2rem 0.5rem 0.4rem 0.5rem;
+  cursor: pointer;
+  -webkit-box-shadow: 4px 4px 0px -2px rgba(218, 218, 218, 0.99);
+  box-shadow: 4px 4px 0px -2px rgba(218, 218, 218, 0.99);
+}
+.deleteButton:hover {
+  background-color: #ecabff;
+}
+.submitButton {
+  background-color: #88ffcc;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  padding: 0.2rem 0.5rem 0.4rem 0.5rem;
+  cursor: pointer;
+  -webkit-box-shadow: 4px 4px 0px -2px rgba(218, 218, 218, 0.99);
+  box-shadow: 4px 4px 0px -2px rgba(218, 218, 218, 0.99);
+  margin-left: 0.3rem;
+}
+.submitButton:hover {
+  background-color: #ecabff;
+}
+.todoCompleted {
+}
