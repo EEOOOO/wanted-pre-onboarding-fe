@@ -15,6 +15,8 @@ https://youtu.be/mUaRHIz0_6c
 응답받은 JWT는 로컬 스토리지에 저장해주세요
 
 
+</hr>
+
 https://youtu.be/bgxEaPjI8aM
 
 ### Assignment3
