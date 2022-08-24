@@ -12,6 +12,8 @@ const Login = ({userToken, setUserToken}) => {
           navigate("/todo")
         }
       }, []); 
+    console.log('login',userToken);
+    console.log('login',localStorage);
     
     const checkEmailValid = async (emailInput) => {
         if(emailInput.includes('@')){

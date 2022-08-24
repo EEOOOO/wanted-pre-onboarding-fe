@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import style from '../login_input_form/login_input_form.module.css';
 const LoginInputForm = ({handleSubmit, submitContent, checkValid, inputValidation}) => {
-    console.log(inputValidation)
+
     return (
     <form className={style.inputForm} onSubmit={handleSubmit} onChange ={checkValid}>
         <div className={style.email}>

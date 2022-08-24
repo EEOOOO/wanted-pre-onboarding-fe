@@ -1,18 +1,18 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import style from '../todo_list/todo_list.module.css';
 import TodoItem from '../todo_item/todo_item';
-const TodoList = ({todoItems, updateTodoItem,deleteTodoItem}) => {
-    if (todoItems.length === 0 || todoItems[0] === undefined){
-        localStorage.clear()
-        return <>
-            <h2>We're so sorry. Cannot get user's data.</h2>
-            <h2>Please Login Again. </h2>
-        </>
+const TodoList = ({updateTodoList, todoItems, updateTodoItem, deleteTodoItem}) => {
+    
+    useEffect(()=>{
+        updateTodoList('',true)
+    },[])
+    if (todoItems.length === 0){
+        return <h2>There is no Todo Items..</h2>
     }
-    console.log(todoItems[0])
     return (
         <ul className={style.list}>
-            {todoItems[0].map(item => (
+            {
+            todoItems.map(item => (
             <TodoItem 
             key={item.id}
             id={item.id}
@@ -21,9 +21,8 @@ const TodoList = ({todoItems, updateTodoItem,deleteTodoItem}) => {
             userId={item.userId}
             updateTodoItem={updateTodoItem}
             deleteTodoItem={deleteTodoItem}
-            />
-            )
-            )}
+            />))
+            }
         </ul>
     )
 };

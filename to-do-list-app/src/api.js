@@ -43,14 +43,17 @@ export const signIn = async (email, password, gotoTodo) => {
     axios(config)
     .then(function (response) {
         localStorage.setItem(email, response.data.access_token);
-        gotoTodo();
     })
+    .then(()=>
+        gotoTodo()
+    )
     .catch(function (error) {
     console.log(error);
     });
 }
 
 export const createTodo = async (todoItem, access_token) => {
+    console.log('cre',access_token)
     let data = JSON.stringify({
         "todo": `${todoItem}`
       });
@@ -135,9 +138,10 @@ export const deleteTodos = async(id,access_token) => {
       data : data
     };
     
-    axios(config)
+    return axios(config)
     .then(function (response) {
-      console.log(JSON.stringify(response.data));
+      console.log(JSON.stringify(response.data))
+      return getTodos(access_token)
     })
     .catch(function (error) {
       console.log(error);

@@ -2,7 +2,6 @@ import React, {useState} from 'react';
 import style from '../todo_item/todo_item.module.css';
 
 const TodoItem = ({id, todo, isCompleted, updateTodoItem,deleteTodoItem}) => {
-    console.log(id, todo)
     const [completed, setCompleted] = useState(isCompleted);
     const [modifyMode, setModifyMode] = useState(false);
     const handleCheck = (event) => {
@@ -24,6 +23,7 @@ const TodoItem = ({id, todo, isCompleted, updateTodoItem,deleteTodoItem}) => {
         event.preventDefault();
         deleteTodoItem(id);
     }
+    
     return (
         <li className={style.listItem} key={id}>
             <form className={style.itemForm}>

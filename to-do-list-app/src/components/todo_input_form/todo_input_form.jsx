@@ -8,13 +8,20 @@ function TodoInputForm({updateTodoList}) {
     }
     const handleSubmit = (event) => {
         event.preventDefault();
-        updateTodoList(newTodo, false);
+        if(event.target[0].value !== ''){
+            updateTodoList(newTodo, false);
+        }
         event.target[0].value = '';
     }
+    const handleKeyUp = (event) => {
+        if(event.keyCode === 13){
+            handleSubmit(event)
+        }
+    }
     return (
-        <form onSubmit={handleSubmit} className={style.inputForm}>
+        <form onSubmit={handleSubmit} className={style.inputForm} onKeyUp={handleKeyUp}>
             <input type="text" className={style.inputField} onChange={handleChange} placeholder="Type your new Assignment"></input>
-            <button className={style.sumbitButton}>New</button>
+            <button className={style.sumbitButton} >New</button>
         </form>
     );
 }

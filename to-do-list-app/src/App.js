@@ -1,28 +1,37 @@
 import style from './app.module.css';
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route, useNavigate } from 'react-router-dom'
 import Login from './components/login/login';
 import Todo from './components/todo/todo';
 import { useEffect, useState } from 'react';
 import { createTodo, getTodos, updateTodos, deleteTodos} from './api';
 function App() {
-  const [userToken, setUserToken] = useState('');
+  const [userToken, setUserToken] = useState();
   const [todoItems, setTodoItems] = useState([]);
+  const navigate = useNavigate();
 
+  useEffect(()=>{
+    if (!userToken) {
+      localStorage.clear();
+      navigate("/")
+    }
+  },[])
+
+  
   const updateTodoList = async (todoItem, init) => {
     if(!init){
       await createTodo(todoItem, userToken);
     }
     const updatedList = await getTodos(userToken);
-    setTodoItems([updatedList]);
+    setTodoItems(updatedList);
   }
   const updateTodoItem = async (id,todoItem, isCompleted)=> {
     console.log(id, todoItem, isCompleted, userToken)
     await updateTodos(id, todoItem, isCompleted, userToken);
   }
   const deleteTodoItem = async (id) => {
-    await deleteTodos(id, userToken)
-    const updatedList = await getTodos(userToken);
-    setTodoItems([updatedList]);
+    const deletedTodoItems = await deleteTodos(id, userToken, setTodoItems);
+    setTodoItems(deletedTodoItems);
+    console.log(todoItems)
   }
   return <div className={style.App}>
     <Routes>

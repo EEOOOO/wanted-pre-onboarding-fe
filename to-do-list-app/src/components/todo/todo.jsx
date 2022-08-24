@@ -6,15 +6,17 @@ import TodoInputForm from '../todo_input_form/todo_input_form';
 import TodoList from '../todo_list/todo_list';
 const Todo = ({userToken, todoItems, updateTodoList, updateTodoItem, deleteTodoItem}) => {
   
-    useEffect(()=>{updateTodoList('', true)},[]);
+    //useEffect(()=>{updateTodoList('', true)},[]);
     const navigate = useNavigate();
     useEffect(() => {
-        if(!localStorage.key(userToken)){          
+        if(!localStorage.key(userToken)){  
+          console.log('not')        
           navigate("/")
         }
       }, []); 
       
-      
+    console.log('todo',userToken);
+    console.log('todo',localStorage);
     return(
       <div className={style.todo}>
         <header className={style.header}>
@@ -24,6 +26,7 @@ const Todo = ({userToken, todoItems, updateTodoList, updateTodoItem, deleteTodoI
         <TodoInputForm 
         updateTodoList={updateTodoList}/>
         <TodoList 
+        updateTodoList={updateTodoList}
         todoItems={todoItems} 
         updateTodoItem={updateTodoItem} 
         deleteTodoItem={deleteTodoItem}/>
