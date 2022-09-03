@@ -1,0 +1,7 @@
+.header {
+  display: flex;
+  background-color: rgba(202, 146, 255, 0.3);
+}
+.headerImage {
+  width: 30%;
+}

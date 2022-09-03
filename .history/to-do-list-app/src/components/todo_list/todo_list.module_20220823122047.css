@@ -1,0 +1,6 @@
+.list {
+  border: 1px solid grey;
+  list-style: none;
+  padding: 0;
+  width: 80%;
+}

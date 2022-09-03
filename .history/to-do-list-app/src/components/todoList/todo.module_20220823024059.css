@@ -1,0 +1,12 @@
+.header {
+  background-color: rgba(202, 146, 255, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.header h1 {
+  color: rgb(149, 99, 251);
+}
+.headerImage {
+  width: 15%;
+}

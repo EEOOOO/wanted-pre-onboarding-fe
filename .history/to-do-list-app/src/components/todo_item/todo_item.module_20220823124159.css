@@ -1,0 +1,8 @@
+.listItem {
+  padding: 1rem;
+  border-bottom: 0.5px solid grey;
+  display: flex;
+  justify-contnet: space-between;
+}
+.checkbox {
+}

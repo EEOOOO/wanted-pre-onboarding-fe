@@ -1,0 +1,15 @@
+@import url("https://fonts.googleapis.com/css2?family=Fredoka+One&family=Pacifico&display=swap");
+
+.header {
+  background-color: rgba(202, 146, 255, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.header h1 {
+  color: rgb(96, 53, 199);
+  font-family: "FredokaOne" cursive;
+}
+.headerImage {
+  width: 15%;
+}

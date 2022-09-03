@@ -1,0 +1,11 @@
+.listItem {
+  padding: 1rem;
+  border-bottom: 0.5px solid grey;
+}
+.itemForm {
+  display: flex;
+  justify-contnet: space-between;
+  align-items: center;
+}
+.checkbox {
+}
